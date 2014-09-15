@@ -22,6 +22,7 @@
 		E191DF6C19C6B4520000B955 /* StoreSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E191DF6B19C6B4520000B955 /* StoreSearchTests.m */; };
 		E191DF7819C6B7120000B955 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E191DF7619C6B7120000B955 /* SearchViewController.m */; };
 		E191DF7919C6B7120000B955 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E191DF7719C6B7120000B955 /* SearchViewController.xib */; };
+		E191DF7C19C6DC7E0000B955 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E191DF7B19C6DC7E0000B955 /* SearchResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		E191DF7519C6B7120000B955 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		E191DF7619C6B7120000B955 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		E191DF7719C6B7120000B955 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		E191DF7A19C6DC7E0000B955 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		E191DF7B19C6DC7E0000B955 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				E191DF5619C6B4520000B955 /* ViewController.m */,
 				E191DF7519C6B7120000B955 /* SearchViewController.h */,
 				E191DF7619C6B7120000B955 /* SearchViewController.m */,
+				E191DF7A19C6DC7E0000B955 /* SearchResult.h */,
+				E191DF7B19C6DC7E0000B955 /* SearchResult.m */,
 				E191DF7719C6B7120000B955 /* SearchViewController.xib */,
 				E191DF5819C6B4520000B955 /* Images.xcassets */,
 				E191DF4719C6B4520000B955 /* Supporting Files */,
@@ -254,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E191DF7C19C6DC7E0000B955 /* SearchResult.m in Sources */,
 				E191DF5719C6B4520000B955 /* ViewController.m in Sources */,
 				E191DF5119C6B4520000B955 /* AppDelegate.m in Sources */,
 				E191DF7819C6B7120000B955 /* SearchViewController.m in Sources */,
