@@ -27,6 +27,7 @@ static NSString * const NothingFoundCellIdentifier = @"NothingFoundCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.searchBar becomeFirstResponder];
     
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.rowHeight = 80;
