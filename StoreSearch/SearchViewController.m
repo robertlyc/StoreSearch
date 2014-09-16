@@ -83,24 +83,80 @@ static NSString * const NothingFoundCellIdentifier = @"NothingFoundCell";
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-    
-    _searchResults = [[NSMutableArray alloc] initWithCapacity:10];
-    
-    if (![searchBar.text isEqualToString:@"justin bieber"]) {
-        for (int i = 0; i < 3; i++) {
-            SearchResult *searchResult = [[SearchResult alloc] init];
-            searchResult.name = [NSString stringWithFormat:@"Fake Result %d for", i];
-            searchResult.artistName = searchBar.text;
-            [_searchResults addObject:searchResult];
+    if (searchBar.text.length > 0) {
+        [searchBar resignFirstResponder];
+        
+        _searchResults = [[NSMutableArray alloc] initWithCapacity:10];
+        
+        NSURL *url = [self urlWithSearchText:searchBar.text];
+        NSString *jsonString = [self performStoreRequestWithURL:url];
+        
+        if (jsonString == nil) {
+            [self showNetWorkError];
+            return;
         }
+        
+        NSDictionary *dictionary = [self parseJSON:jsonString];
+        if (dictionary == nil) {
+            [self showNetWorkError];
+            return;
+        }
+        
+        NSLog(@"Dictionary '%@'", dictionary);
+        
+        [self.tableView reloadData];
     }
-    
-    [self.tableView reloadData];
 }
 
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
     return UIBarPositionTopAttached;
+}
+
+#pragma mark - Customer Methods
+- (NSURL *)urlWithSearchText:(NSString *)searchText {
+    NSString *escapedSearchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@", escapedSearchText];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    return url;
+}
+
+- (NSString *)performStoreRequestWithURL:(NSURL *)url {
+    NSError *error;
+    NSString *resultString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (resultString == nil) {
+        NSLog(@"Download Error: %@", error);
+        return nil;
+    }
+    return resultString;
+}
+
+#pragma mark - parse JSON
+- (NSDictionary *)parseJSON:(NSString *)jsonString {
+    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    
+    id resultObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if (resultObject == nil) {
+        NSLog(@"JSON Error: %@", error);
+        return nil;
+    }
+    
+    if (![resultObject isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"JSON Error: Expected dictionary");
+        return nil;
+    }
+    
+    return resultObject;
+}
+
+- (void)showNetWorkError {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Whoops..."
+                                                        message:@"There was an error reading "
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 - (void)didReceiveMemoryWarning
