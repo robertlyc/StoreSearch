@@ -8,6 +8,7 @@
 
 #import "SearchResultCell.h"
 #import "SearchResult.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation SearchResultCell
 
@@ -17,6 +18,13 @@
     UIView *selectedView = [[UIView alloc] initWithFrame:CGRectZero];
     selectedView.backgroundColor = [UIColor colorWithRed:20/255.0f green:160/255.0f blue:160/255.0f alpha:0.5f];
     self.selectedBackgroundView = selectedView;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self.artworkImageView cancelImageRequestOperation];
+    self.nameLabel.text = nil;
+    self.artistNameLabel.text = nil;
 }
 
 - (void)configureForSearchResult:(SearchResult *)searchResult {
@@ -29,6 +37,8 @@
     
     NSString *kind = [self kindForDisplay:searchResult.kind];
     self.artistNameLabel.text = [NSString stringWithFormat:@"%@ (%@)",artistName, kind];
+    
+    [self.artworkImageView setImageWithURL:[NSURL URLWithString:searchResult.artworkURL60] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
 }
 
 - (NSString *)kindForDisplay:(NSString *)kind {
@@ -56,6 +66,4 @@
         return kind;
     }
 }
-
-
 @end
