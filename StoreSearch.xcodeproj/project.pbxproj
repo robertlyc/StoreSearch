@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E11DD45F19CA79AD0048476A /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11DD45E19CA79AD0048476A /* LoadingCell.xib */; };
 		E191DF4119C6B4520000B955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E191DF4019C6B4520000B955 /* Foundation.framework */; };
 		E191DF4319C6B4520000B955 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E191DF4219C6B4520000B955 /* CoreGraphics.framework */; };
 		E191DF4519C6B4520000B955 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E191DF4419C6B4520000B955 /* UIKit.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E11DD45E19CA79AD0048476A /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		E191DF3D19C6B4520000B955 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E191DF4019C6B4520000B955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E191DF4219C6B4520000B955 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +140,7 @@
 				E191DF7719C6B7120000B955 /* SearchViewController.xib */,
 				E191DF7D19C6E66B0000B955 /* SearchResultCell.xib */,
 				E191DF8219C7D7660000B955 /* NothingFoundCell.xib */,
+				E11DD45E19CA79AD0048476A /* LoadingCell.xib */,
 				E191DF5819C6B4520000B955 /* Images.xcassets */,
 				E191DF4719C6B4520000B955 /* Supporting Files */,
 			);
@@ -251,6 +254,7 @@
 			files = (
 				E191DF5919C6B4520000B955 /* Images.xcassets in Resources */,
 				E191DF4B19C6B4520000B955 /* InfoPlist.strings in Resources */,
+				E11DD45F19CA79AD0048476A /* LoadingCell.xib in Resources */,
 				E191DF7E19C6E66B0000B955 /* SearchResultCell.xib in Resources */,
 				E191DF8319C7D7660000B955 /* NothingFoundCell.xib in Resources */,
 				E191DF7919C6B7120000B955 /* SearchViewController.xib in Resources */,
@@ -474,6 +478,7 @@
 				E191DF7119C6B4520000B955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E191DF7219C6B4520000B955 /* Build configuration list for PBXNativeTarget "StoreSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +487,7 @@
 				E191DF7419C6B4520000B955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
