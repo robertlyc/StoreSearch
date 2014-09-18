@@ -19,6 +19,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
 
@@ -40,7 +41,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     [super viewDidLoad];
     [self.searchBar becomeFirstResponder];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(108, 0, 0, 0);
     self.tableView.rowHeight = 80;
     
     UINib *cellNib = [UINib nibWithNibName:SearchResultCellIdentifier bundle:nil];
@@ -92,12 +93,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
         return cell;
     }
-    
-
 }
 
 #pragma mark - UITableViewDelegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -112,8 +110,45 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    if (searchBar.text.length > 0) {
-        [searchBar resignFirstResponder];
+    [self performSearch];
+}
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
+#pragma mark - Action Method
+- (IBAction)segmentChanged:(UISegmentedControl *)sender {
+    if (_searchResults != nil) {
+        [self performSearch];
+    }
+}
+
+#pragma mark - Customer Methods
+- (NSURL *)urlWithSearchText:(NSString *)searchText category:(NSInteger)category {
+    NSString *categoryName;
+    switch (category) {
+        case 0: categoryName = @"";
+            break;
+        case 1: categoryName = @"musicTrack";
+            break;
+        case 2: categoryName = @"software";
+            break;
+        case 3: categoryName = @"ebook";
+            break;
+    }
+    
+    NSString *escapedSearchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, categoryName];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    return url;
+}
+
+- (void)performSearch {
+    if (self.searchBar.text.length > 0) {
+        [self.searchBar resignFirstResponder];
         
         [_queue cancelAllOperations];
         _isLoading = YES;
@@ -121,7 +156,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
         
         _searchResults = [[NSMutableArray alloc] initWithCapacity:10];
         
-        NSURL *url = [self urlWithSearchText:searchBar.text];
+        NSURL *url = [self urlWithSearchText:self.searchBar.text category:self.segmentedControl.selectedSegmentIndex];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -146,20 +181,6 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
         
         [_queue addOperation:operation];
     }
-}
-
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
-    return UIBarPositionTopAttached;
-}
-
-#pragma mark - Customer Methods
-- (NSURL *)urlWithSearchText:(NSString *)searchText {
-    NSString *escapedSearchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@&limit=200", escapedSearchText];
-    
-    NSURL *url = [NSURL URLWithString:urlString];
-    return url;
 }
 
 - (NSString *)performStoreRequestWithURL:(NSURL *)url {
