@@ -150,6 +150,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 #pragma mark - Customer Methods
 - (NSURL *)urlWithSearchText:(NSString *)searchText {
     NSString *escapedSearchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
     NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@&limit=200", escapedSearchText];
     
     NSURL *url = [NSURL URLWithString:urlString];
