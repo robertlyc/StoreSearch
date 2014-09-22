@@ -10,13 +10,28 @@
 
 @interface DetailViewController ()
 
+@property (nonatomic, weak) IBOutlet UIView *popupView;
+@property (nonatomic, weak) IBOutlet UIImage *artworkImageView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *artistNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *kindLabel;
+@property (nonatomic, weak) IBOutlet UILabel *genreLabel;
+@property (nonatomic, weak) IBOutlet UIButton *priceButton;
+
+
 @end
 
 @implementation DetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    UIImage *image = [[UIImage imageNamed:@"PriceButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.priceButton setBackgroundImage:image forState:UIControlStateNormal];
+    
+    self.view.tintColor = [UIColor colorWithRed:20/255.0f green:160/255.0f blue:160/255.0f alpha:1.0f];
 }
 
 - (void)didReceiveMemoryWarning {
