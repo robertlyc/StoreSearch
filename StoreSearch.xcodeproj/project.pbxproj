@@ -44,6 +44,8 @@
 		E191DF7E19C6E66B0000B955 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E191DF7D19C6E66B0000B955 /* SearchResultCell.xib */; };
 		E191DF8119C6EB640000B955 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E191DF8019C6EB640000B955 /* SearchResultCell.m */; };
 		E191DF8319C7D7660000B955 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E191DF8219C7D7660000B955 /* NothingFoundCell.xib */; };
+		E1E11C3A19CFFC6F00BC4577 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E11C3819CFFC6F00BC4577 /* DetailViewController.m */; };
+		E1E11C3B19CFFC6F00BC4577 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E11C3919CFFC6F00BC4577 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,9 @@
 		E191DF7F19C6EB640000B955 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		E191DF8019C6EB640000B955 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		E191DF8219C7D7660000B955 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		E1E11C3719CFFC6F00BC4577 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E1E11C3819CFFC6F00BC4577 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		E1E11C3919CFFC6F00BC4577 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +245,9 @@
 				E191DF7B19C6DC7E0000B955 /* SearchResult.m */,
 				E191DF7F19C6EB640000B955 /* SearchResultCell.h */,
 				E191DF8019C6EB640000B955 /* SearchResultCell.m */,
+				E1E11C3719CFFC6F00BC4577 /* DetailViewController.h */,
+				E1E11C3819CFFC6F00BC4577 /* DetailViewController.m */,
+				E1E11C3919CFFC6F00BC4577 /* DetailViewController.xib */,
 				E191DF7719C6B7120000B955 /* SearchViewController.xib */,
 				E191DF7D19C6E66B0000B955 /* SearchResultCell.xib */,
 				E191DF8219C7D7660000B955 /* NothingFoundCell.xib */,
@@ -359,6 +367,7 @@
 			files = (
 				E191DF5919C6B4520000B955 /* Images.xcassets in Resources */,
 				E191DF4B19C6B4520000B955 /* InfoPlist.strings in Resources */,
+				E1E11C3B19CFFC6F00BC4577 /* DetailViewController.xib in Resources */,
 				E11DD45F19CA79AD0048476A /* LoadingCell.xib in Resources */,
 				E191DF7E19C6E66B0000B955 /* SearchResultCell.xib in Resources */,
 				E191DF8319C7D7660000B955 /* NothingFoundCell.xib in Resources */,
@@ -392,6 +401,7 @@
 				E11DD49419CAAABB0048476A /* AFHTTPSessionManager.m in Sources */,
 				E11DD49819CAAABB0048476A /* AFURLRequestSerialization.m in Sources */,
 				E191DF5119C6B4520000B955 /* AppDelegate.m in Sources */,
+				E1E11C3A19CFFC6F00BC4577 /* DetailViewController.m in Sources */,
 				E11DD4B019CACD0F0048476A /* UIButton+AFNetworking.m in Sources */,
 				E11DD4B119CACD0F0048476A /* UIImageView+AFNetworking.m in Sources */,
 				E191DF7819C6B7120000B955 /* SearchViewController.m in Sources */,
@@ -523,6 +533,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StoreSearch/StoreSearch-Prefix.pch";
 				INFOPLIST_FILE = "StoreSearch/StoreSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -536,6 +547,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StoreSearch/StoreSearch-Prefix.pch";
 				INFOPLIST_FILE = "StoreSearch/StoreSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
