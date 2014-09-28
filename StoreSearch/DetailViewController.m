@@ -8,11 +8,12 @@
 
 #import "DetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SearchResult.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *popupView;
-@property (nonatomic, weak) IBOutlet UIImage *artworkImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *artworkImageView;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *artistNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *kindLabel;
@@ -34,6 +35,15 @@
     
     self.view.tintColor = [UIColor colorWithRed:20/255.0f green:160/255.0f blue:160/255.0f alpha:1.0f];
     self.popupView.layer.cornerRadius = 10.0f;
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close:)];
+    gestureRecognizer.cancelsTouchesInView = NO;
+    gestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
+    if (self.searchResult != nil) {
+        [self updateUI];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +57,23 @@
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
 
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return (touch.view == self.view);
+}
+
+- (void)updateUI {
+    self.nameLabel.text = self.searchResult.name;
+    
+    NSString *artistName = self.searchResult.artistName;
+    if (artistName == nil) {
+        artistName = @"Unkown";
+    }
+    
+    self.artistNameLabel.text = artistName;
+    self.kindLabel.text = self.searchResult.kind;
+    self.genreLabel.text = self.searchResult.genre;
 }
 
 - (void)dealloc {

@@ -8,10 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
                 <outlet property="artistNameLabel" destination="MPR-dz-1R7" id="4PS-bb-REm"/>
+                <outlet property="artworkImageView" destination="hR3-Hr-VLQ" id="iLf-C5-SxT"/>
                 <outlet property="genreLabel" destination="V3f-RB-YpK" id="VsU-Zf-Bb2"/>
                 <outlet property="kindLabel" destination="qqx-xq-kb7" id="XUx-hM-E4e"/>
                 <outlet property="nameLabel" destination="FWv-gf-iXg" id="y9s-4j-M9y"/>
-                <outlet property="popupView" destination="mnB-FE-fTn" id="tci-2K-vYP"/>
+                <outlet property="popupView" destination="mnB-FE-fTn" id="pZv-TM-cqP"/>
                 <outlet property="priceButton" destination="k57-2m-nh7" id="o3H-kS-eYK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
