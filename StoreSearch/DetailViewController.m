@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SearchResult.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailViewController () <UIGestureRecognizerDelegate>
 
@@ -59,12 +60,17 @@
 
 }
 
+- (IBAction)openInStore:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.searchResult.storeURL]];
+}
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return (touch.view == self.view);
 }
 
 - (void)updateUI {
     self.nameLabel.text = self.searchResult.name;
+    self.kindLabel.text = [self.searchResult kindForDisplay];
     
     NSString *artistName = self.searchResult.artistName;
     if (artistName == nil) {
@@ -74,10 +80,26 @@
     self.artistNameLabel.text = artistName;
     self.kindLabel.text = self.searchResult.kind;
     self.genreLabel.text = self.searchResult.genre;
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setCurrencyCode:self.searchResult.currency];
+    
+    NSString *priceText;
+    if ([self.searchResult.price floatValue] == 0.0f) {
+        priceText = @"Free";
+    } else {
+        priceText = [formatter stringFromNumber:self.searchResult.price];
+    }
+    
+    [self.priceButton setTitle:priceText forState:UIControlStateNormal];
+    
+    [self.artworkImageView setImageWithURL:[NSURL URLWithString:self.searchResult.artworkURL100]];
 }
 
 - (void)dealloc {
     NSLog(@"dealloc %@", self);
+    [self.artworkImageView cancelImageRequestOperation];
 }
 
 @end
