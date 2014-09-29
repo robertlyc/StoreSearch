@@ -25,6 +25,7 @@
 		E11DD4B219CACD0F0048476A /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E11DD4A819CACD0F0048476A /* UIProgressView+AFNetworking.m */; };
 		E11DD4B319CACD0F0048476A /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E11DD4AA19CACD0F0048476A /* UIRefreshControl+AFNetworking.m */; };
 		E11DD4B419CACD0F0048476A /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E11DD4AC19CACD0F0048476A /* UIWebView+AFNetworking.m */; };
+		E175A3C419D801E7002F5A7D /* GradintView.m in Sources */ = {isa = PBXBuildFile; fileRef = E175A3C319D801E7002F5A7D /* GradintView.m */; };
 		E191DF4119C6B4520000B955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E191DF4019C6B4520000B955 /* Foundation.framework */; };
 		E191DF4319C6B4520000B955 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E191DF4219C6B4520000B955 /* CoreGraphics.framework */; };
 		E191DF4519C6B4520000B955 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E191DF4419C6B4520000B955 /* UIKit.framework */; };
@@ -96,6 +97,8 @@
 		E11DD4AA19CACD0F0048476A /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		E11DD4AB19CACD0F0048476A /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		E11DD4AC19CACD0F0048476A /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		E175A3C219D801E7002F5A7D /* GradintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradintView.h; sourceTree = "<group>"; };
+		E175A3C319D801E7002F5A7D /* GradintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradintView.m; sourceTree = "<group>"; };
 		E191DF3D19C6B4520000B955 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E191DF4019C6B4520000B955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E191DF4219C6B4520000B955 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -247,6 +250,8 @@
 				E191DF8019C6EB640000B955 /* SearchResultCell.m */,
 				E1E11C3719CFFC6F00BC4577 /* DetailViewController.h */,
 				E1E11C3819CFFC6F00BC4577 /* DetailViewController.m */,
+				E175A3C219D801E7002F5A7D /* GradintView.h */,
+				E175A3C319D801E7002F5A7D /* GradintView.m */,
 				E1E11C3919CFFC6F00BC4577 /* DetailViewController.xib */,
 				E191DF7719C6B7120000B955 /* SearchViewController.xib */,
 				E191DF7D19C6E66B0000B955 /* SearchResultCell.xib */,
@@ -409,6 +414,7 @@
 				E11DD4AF19CACD0F0048476A /* UIAlertView+AFNetworking.m in Sources */,
 				E11DD4B419CACD0F0048476A /* UIWebView+AFNetworking.m in Sources */,
 				E11DD4AE19CACD0F0048476A /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				E175A3C419D801E7002F5A7D /* GradintView.m in Sources */,
 				E11DD49319CAAABB0048476A /* AFHTTPRequestOperationManager.m in Sources */,
 				E11DD4B319CACD0F0048476A /* UIRefreshControl+AFNetworking.m in Sources */,
 				E11DD49619CAAABB0048476A /* AFSecurityPolicy.m in Sources */,
